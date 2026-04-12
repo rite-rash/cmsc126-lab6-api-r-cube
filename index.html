@@ -1,11 +1,116 @@
+<!--NOTE: replace ang hardcoded with fetched api data later just for layout and testing lang sya-->
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> </title>
-</head>
-<body>
-    <h1> </h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pokemon</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h2>website name: pokibeer eme idk</h2>
+      <section class="search-bar">
+        <form id="filterForm">
+          <input type="text" placeholder="Search pokemon..." />
+          <button type="submit">Search</button>
+        </form>
+      </section>
+    </header>
+
+
+      <!--section to choose filter by category -->
+      <nav class="filter-controller">
+        <!--use this for fetching api n part-->
+        <button class="filter-option-btn active" data-filter="all">All</button>
+        <button class="filter-option-btn" data-filter="fire">Fire</button>
+        <button class="filter-option-btn" data-filter="water">Water</button>
+        <button class="filter-option-btn" data-filter="grass">Grass</button>
+        <button class="filter-option-btn" data-filter="electric">
+          Electric
+        </button>
+      </nav>
+
+
+    <main class="main-display">
+      <section class="filter-results" id="pokemonGallery">
+        <!--pokemon obj go here after fetch in api basta it should look like this so make prop lng ig sa pokemon obj-->
+        <!--test only del if may js na-->
+        <div class="filterDiv showCards">
+          <span class="pokemon-id">#067</span>
+          <img src="images/pikachu.png" alt="Zorua" />
+          <h3>pikachu</h3>
+          <div class="type-container">
+            <span class="type-badge">ewan q</span>
+            <span class="type-badge">try lng</span>
+          </div>
+        </div>
+        <div class="filterDiv showCards">Card 2</div>
+        <div class="filterDiv showCards">Card 3</div>
+        <div class="filterDiv showCards">Card 4</div>
+        <div class="filterDiv showCards">Card 5</div>
+        <div class="filterDiv showCards">Card 6</div>
+      </section>
+        <!--del till here-->
+
+
+      <aside id="side-panel">
+        <div class="side-panel-card">
+          <!--for test lang-->
+          <div class="side-panel-sprites">
+            <img src="images/pikachu.png" alt="Front" class="side-panel-img">
+            <img src="images/pikachu.png" alt="Back" class="side-panel-img">
+          </div>
+        
+          <div class="side-panel-tags">
+            <span class="type-badge">Form</span>
+            <span class="type-badge">male</span>
+          </div>
+
+          <span class="pokemon-id">#025</span>
+          <h2 class="side-panel--name">Pikachu</h2>
+
+          <div class="type-container">
+            <span class="type-badge">Electric</span>
+          </div>
+
+          <div class="abilities-section">
+            <h4>Abilities:</h4>
+            <ul>
+              <li>Static</li>
+              <li>Lightning Rod</li>
+            </ul>
+          </div>
+        <!--del till here also-->
+        </div>
+      </aside>
+    </main>
+
+
+    <!--for testing ang pop up integrate and lipat lang later sa js -->
+<script>
+  const cards = document.querySelectorAll('.filterDiv');
+  const sidePanel = document.getElementById('side-panel');
+  const mainDisplay = document.querySelector('.main-display');
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      sidePanel.classList.toggle('active');
+    });
+  });
+</script>
+
+
+
+  <script src="script.js"></script>
+  </body>
 </html>
+
+<!-- ----content---
+navbar -> filters ?
+searchh
+filters
+3 cards per row for the pokemon
+popup -> more details 
+ -->

@@ -1,0 +1,228 @@
+/* ------- NAVIGATION ------- */
+
+/* ------- search bar ------- */
+header {
+  width: 100%;
+  padding-top: 20px;
+}
+
+header h2 {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.search-bar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+/* ref point for the input and button */
+#filterForm {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  gap: 5px;
+}
+
+#filterForm input {
+  flex: 1;
+  height: 30px;
+}
+
+#filterForm button {
+  height: 30px;
+}
+
+.filter-controller {
+  text-align: center;
+  padding: 30px 0;
+}
+
+.filter-option-btn {
+  background-color: #eee;
+  border: none;
+  padding: 10px 25px;
+  margin: 5px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.filter-option-btn:hover {
+  background-color: #f3d2ba;
+}
+
+/* curr selected categ */
+.filter-option-btn.active {
+  background-color: #ff6a00;
+  color: white;
+  box-shadow: 0 4px 10px rgba(61, 125, 202, 0.3);
+}
+
+/*------- GALLERY -------*/
+.main-display {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+#pokemonGallery {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /*adjust lang here kung ilan per rpw*/
+  grid-auto-rows: max-content; /*so row does not get too big*/
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 50px; /* space for the very row's sprites */
+  padding: 20px;
+  min-width: 0;
+  overflow: visible;
+  gap: 50px 20px; 
+}
+
+/*------- SIDE PANEL-------*/
+/* bali invisible sidepanel until it's active or clicked*/
+#side-panel {
+  width: 0; /*takes no space when closed */
+  min-width: 0;
+  flex-shrink: 0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: #f9f9f9;
+  border-left: 2px solid #ddd;
+  padding: 0;
+  overflow-y: auto; /*hides content */
+  border-left: none;
+}
+
+#side-panel.active {
+  display: block;
+  width: 300px;
+  min-width: 300px;
+  padding: 40px 20px; /* padding comes back when open */
+}
+
+
+
+/*------- SIDE PANEL CARD -------*/
+.side-panel-card {
+  border: 1px solid gray;
+  position: relative;  /* reference point for side panel card contents*/
+  margin-top: 70px;      /*space for sprite */
+  padding: 20px;
+  width: 100%;
+  overflow: visible; 
+  border-radius: 15px;
+  box-sizing: border-box;
+  text-align: center;    /*centers name, id, badges */
+}
+.side-panel-card .pokemon-id {
+  position: static;   
+  display: block;
+  text-align: center;
+  margin-top: 10px;   
+  color: #888;
+}
+
+.side-panel-sprites {
+  position: absolute;
+  top: -70px;      /*peek out above card */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.side-panel-img {
+  width: 120px;
+  height: auto;
+}
+
+/* for form and gender tags to be in top right of card */
+.side-panel-tags {
+  position: absolute; 
+  top: 80px; /* below the sprite*/
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+.abilities-section {
+    text-align: left;     
+    width: 100%;
+}
+
+.abilities-section h4 {
+    margin-bottom: 0;  /*removed gap between "Abilities" and the list*/
+}
+
+/*modified gap between 'abilities' and the specific abbilities below*/
+.abilities-section ul {
+    margin-top: 2px;    
+    padding-left: 20px; 
+}
+
+
+.filterDiv {
+  display: none; /*default: hidden, make .showCards func in js for on*/
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  overflow: visible;
+  border: 1px solid #888;
+  min-height: 170px;     /*automatic na to magadjust sa obj */
+
+  /*test only for style and sht since obj will automatically adjust given use of grid remove lng later sei ah*/
+  height: 170px;   
+  padding-bottom: 15px;   
+  box-sizing: border-box; /* so padding doesn't grow the card */
+  border-radius: 15px;    
+  /*delete till here once js is done*/
+}
+
+.filterDiv h3 {
+  text-align: center;
+  margin: 0;     
+  margin-top: 60px; 
+}
+
+
+.filterDiv img {
+  position: absolute;
+  top: -45px; /* so it looks like the pokemon is mej nasa labas wahaha */
+  left: 50%;
+  transform: translateX(-50%); /*center sprite*/
+  width: 100px;
+  z-index: 10; /* psrite on top of the border effect */
+}
+
+/* ref point ffor types */
+.type-container {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 5px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* indiv type */
+.type-badge {
+  border: 1px solid #333;
+  padding: 4px 12px;
+  border-radius: 20px;
+  color: #333;
+}
+/* prio on */
+.showCards {
+  display: flex !important;
+}
