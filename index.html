@@ -21,126 +21,52 @@
 
 
       <!--section to choose filter by category -->
-      <div id="filter-header">Filters</div>
-      <!-- <nav class="filter-controller"> -->
+      <nav class="filter-controller">
         <!--use this for fetching api n part-->
-        
-        <!-- <button class="filter-option-btn active" data-filter="all">All</button>
+        <button class="filter-option-btn active" data-filter="all">All</button>
         <button class="filter-option-btn" data-filter="fire">Fire</button>
         <button class="filter-option-btn" data-filter="water">Water</button>
         <button class="filter-option-btn" data-filter="grass">Grass</button>
-        <button class="filter-option-btn" data-filter="electric">Electric</button> -->
-
-      <form class="filter-controller">
-        <select id="type">
-          <!-- NOTE: i think use js to iterate array of pokemon types, abilities, gen
-          for now, this is temporary -->
-          <option value=" " selected>Type</option>
-          <option value="all">All</option>
-          <option value="all">Fire</option>
-          <option value="water">Water</option>
-          <option value="grass">Grass</option>
-        </select>
-        <select id="abilities">
-          <option value=" " selected>Abilities</option>
-          <option value="all">All</option>
-          <option value="static">Static</option>
-          <option value="cbody">Cursed Body</option>
-          <option value="intimidate">Intimidate</option>
-          <!-- oh god how do you do the values of this thing, good luck sei TT -->
-        </select>
-        <select id="generation">
-          <option value=" " selected>Generation</option>
-          <option value="all" selected>All</option>
-          <option value="gen1">Gen I</option>
-          <option value="gen2">Gen II</option>
-          <option value="gen3">Gen III</option>
-        </select>
-        
-      </form>
+        <button class="filter-option-btn" data-filter="electric">
+          Electric
+        </button>
       </nav>
 
 
     <main class="main-display">
-      <section class="filter-results" id="pokemonGallery">
-        <!--pokemon obj go here after fetch in api basta it should look like this so make prop lng ig sa pokemon obj-->
-        <!--test only del if may js na-->
-        <div class="filterDiv showCards">
-          <span class="pokemon-id">#067</span>
-          <img src="images/pikaFr.png" alt="pika-front" />
-          <h3>pikachu</h3>
-          <div class="type-container">
-            <span class="type-badge">ewan q</span>
-            <span class="type-badge">try lng</span>
-          </div>
-        </div>
-        <div class="filterDiv showCards">Card 2</div>
-        <div class="filterDiv showCards">Card 3</div>
-        <div class="filterDiv showCards">Card 4</div>
-        <div class="filterDiv showCards">Card 5</div>
-        <div class="filterDiv showCards">Card 6</div>
-      </section>
-        <!--del till here-->
-
+      <section class="filter-results" id="pokemonGallery"></section>
 
       <aside id="side-panel">
         <div class="side-panel-card">
-          <!--for test lang-->
+          <!--for test lang
           <div class="side-panel-sprites">
-            <img src="images/pikaFr.png" alt="front" class="side-panel-img">
-            <img src="images/pikaBa.png" alt="back" class="side-panel-img">
+            <img id="side-sprite-front" src="images/pikachu.png" alt="Front" class="side-panel-img">
+            <img id="side-sprite-back" src="images/pikachu.png" alt="Back" class="side-panel-img">
           </div>
         
           <div class="side-panel-tags">
-            <!-- <span class="type-badge">Form</span> -->
-            <!-- <span class="type-badge">male</span> -->
-            <form classs="side-panel-tags" form="poke-form">
-                <select id="main-form">
-                  <option value=" " selected>Form</option>
-                  <option value="evilPika">EVIL Pikachu</option>
-                </select>
-                <select id="gender-form">
-                  <option value=" " selected>Gender</option>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
-                </select>
-            </form>
+            <span class="type-badge">Form</span>
+            <span class="type-badge">male</span>
           </div>
 
-          <span class="pokemon-id">#025</span>
-          <h2 class="side-panel--name">Pikachu</h2>
+          <span class="pokemon-id" id="side-id">S</span>
+          <h2 class="side-panel--name" id="side-name">Pikachu</h2>
 
-          <div class="type-container">
+          <div class="type-container" id="side-types">
             <span class="type-badge">Electric</span>
           </div>
 
           <div class="abilities-section">
             <h4>Abilities:</h4>
-            <ul>
+            <ul id="side-abilities">
               <li>Static</li>
               <li>Lightning Rod</li>
             </ul>
           </div>
-        <!--del till here also-->
+        -->
         </div>
       </aside>
     </main>
-
-
-    <!--for testing ang pop up integrate and lipat lang later sa js -->
-<script>
-  const cards = document.querySelectorAll('.filterDiv');
-  const sidePanel = document.getElementById('side-panel');
-  const mainDisplay = document.querySelector('.main-display');
-
-  cards.forEach(card => {
-    card.addEventListener('click', () => {
-      sidePanel.classList.toggle('active');
-    });
-  });
-</script>
-
-
 
   <script src="script.js"></script>
   </body>
