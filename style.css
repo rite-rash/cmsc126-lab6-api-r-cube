@@ -1,6 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Outfit", sans-serif;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
 /* ------- NAVIGATION ------- */
 
 /* ------- search bar ------- */
+body{
+  background-color: #f6f8fc;
+  font-family: "Outfit", sans-serif;
+  background-image: url(images/pokeball-icon.png);
+  background-repeat: no-repeat;
+  background-position-x: -180px;
+  background-position-y: -80px;
+  width: 100%;
+}
+
+
 header {
   width: 100%;
   padding-top: 20px;
@@ -70,8 +96,11 @@ header h2 {
 .main-display {
   display: flex;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1300px;
   margin: 0 auto;
+
+  justify-content: center;
+  align-items: center;
 }
 
 
@@ -87,10 +116,13 @@ header h2 {
   padding: 20px;
   min-width: 0;
   overflow: visible;
-  gap: 100px 20px; 
+  gap: 100px 30px; 
 
   align-items: center;
   justify-content: center;
+  place-items: center;
+
+  
 }
 
 /*------- SIDE PANEL-------*/
@@ -133,12 +165,12 @@ header h2 {
   box-sizing: border-box;
   text-align: center;    /*centers name, id, badges */
 }
-.side-panel-card .pokemon-id {
+.side-panel-card.pokemon-id {
   position: static;
   display: block;
   text-align: right;
   margin-top: 10px;
-  color: #888;
+  color: #d1d1d1;
 }
 
 .side-panel-sprites {
@@ -196,36 +228,43 @@ header h2 {
   width: 100%;
   justify-content: flex-end;
   overflow: visible;
-  border: 1px solid #888;
   min-height: 170px;     /*automatic na to magadjust sa obj */
 
   /*test only for style and sht since obj will automatically adjust given use of grid remove lng later sei ah*/
   height: 170px;   
   padding-bottom: 15px;   
   box-sizing: border-box; /* so padding doesn't grow the card */
-  border-radius: 15px;    
+  border-radius: 30px;    
   /*delete till here once js is done*/
+
+  background-color: white;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 35px;
 }
 
 .filterDiv h3 {
   display: block;
-  text-align: left;
-  margin-top: 60px; 
-  margin-left: 30px;
+  text-align: center;
+  margin-top: 60px;
+  /* margin-left: 40px; */
   width: 100%;
   text-transform: capitalize;
+  
 
-  font-family: "Fira Sans","Trebuchet MS",Ubuntu,Helvetica,Arial,sans-serif;
+  /* font-family: "Fira Sans","Trebuchet MS",Ubuntu,Helvetica,Arial,sans-serif; */
+  font-family:  "Outfit", Franklin Gothic Medium;;
   font-weight: bold;
+  font-size: 20px;
+
+  color: #0c1d38
 }
 
 
 .filterDiv .pokemon-id {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 20px;
+  right: 21px;
   font-weight: bold;
-  color: #666;
+  color: #a9a7a7;
 }
 
 .filterDiv img {
@@ -255,30 +294,32 @@ header h2 {
 .type-badge {
   /* border: 1px solid #333; */
   padding: 4px 12px;
-  border-radius: 20px;
+  border-radius: 5px;
   text-transform: uppercase;
-  font-family: Exo\ 2,sans-serif
+  /* font-family: Exo\ 2,sans-serif; */
+  font-weight: bold;
+  color: white;
   /* color: #333; */
 }
 
-.normal   { background-color: #A8A77A; }
-.fire     { background-color: #EE8130; }
-.water    { background-color: #6390F0; }
-.electric { background-color: #F7D02C; color: #333; }
-.grass    { background-color: #a0e478; }
-.ice      { background-color: #96D9D6; color: #333; }
-.fighting { background-color: #C22E28; }
-.poison   { background-color: #A33EA1; }
-.ground   { background-color: #E2BF65; }
-.flying   { background-color: #A98FF3; }
-.psychic  { background-color: #F95587; }
-.bug      { background-color: #A6B91A; }
-.rock     { background-color: #B6A136; }
-.ghost    { background-color: #735797; }
-.dragon   { background-color: #6F35FC; }
-.dark     { background-color: #705746; }
-.steel    { background-color: #B7B7CE; color: #333; }
-.fairy    { background-color: #D685AD; }
+.normal   { background-color: #9e9ea1; }
+.fire     { background-color: #E62829; }
+.water    { background-color: #2981EF; }
+.electric { background-color: #FBC000; }
+.grass    { background-color: #3FA129; }
+.ice      { background-color: #42D7FF; }
+.fighting { background-color: #FF8000; }
+.poison   { background-color: #9141CB; }
+.ground   { background-color: #935421; }
+.flying   { background-color: #81B9EF; }
+.psychic  { background-color: #FFFFFF; }
+.bug      { background-color: #90A019; }
+.rock     { background-color: #AFA981; }
+.ghost    { background-color: #704170; }
+.dragon   { background-color: #5061E1; }
+.dark     { background-color: #50413F; }
+.steel    { background-color: #60A1B8; }
+.fairy    { background-color: #DE83D6; }
 
 
 
