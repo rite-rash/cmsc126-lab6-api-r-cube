@@ -144,7 +144,7 @@ header h2 {
 }
 
 #side-panel.active {
-  display: none;
+  display: block;
   width: 300px;
   min-width: 300px;
   padding: 40px 20px; /* padding comes back when open */
