@@ -127,13 +127,15 @@ gallery.addEventListener('click', (e) => {
 
     document.getElementById('side-id').textContent = `#${String(data.id).padStart(3, '0')}`;
     document.getElementById('side-name').textContent = data.name;
-    document.getElementById('side-sprite-front').src = data.sprite;
+    document.getElementById('side-sprite').src = data.sprite;
     
     document.getElementById('side-types').innerHTML = 
-        data.types.map(t => `<span class="type-badge">${t}</span>`).join('');
+        data.types.map(t => `<span class="type-badge ${t}">${t}</span>`).join('');
     
     document.getElementById('side-abilities').innerHTML = 
         data.abilities.map(a => `<li>${a}</li>`).join('');
+    
+    gallery.style.gridTemplateColumns = "repeat(3, 1fr)"; //to
     
     sidePanel.classList.add('active');
 
