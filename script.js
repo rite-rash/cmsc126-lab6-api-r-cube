@@ -181,7 +181,7 @@ function filterCards(){
         const matchAbility = !selectedAbi || data.abilities.includes(selectedAbi);
         const matchGen = !selectedGen || data.gen === selectedGen;
         
-        card.classList.remove('showCards');    // hide
+        card.classList.remove('showCards');    // clear
 
         if (matchType && matchAbility && matchGen) {
             card.classList.add('showCards');   // show
