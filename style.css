@@ -79,7 +79,7 @@ header h2 {
 #pokemonGallery {
   flex:3;
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /*adjust lang here kung ilan per rpw*/
+  grid-template-columns: repeat(6, 1fr); /*adjust lang here kung ilan per rpw*/
   grid-auto-rows: max-content; /*so row does not get too big*/
   width: 100%;
   max-width: 1200px;
