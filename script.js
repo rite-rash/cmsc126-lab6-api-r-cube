@@ -2,7 +2,7 @@ const gallery = document.getElementById('pokemonGallery');
 const sidePanel = document.getElementById('side-panel');
 let activeFilter = 'all'; 
 
-//
+
 function searchCards() {
     const query = document.getElementById('searchInput').value.trim().toLowerCase();
     const cards = document.querySelectorAll('.filterDiv');
@@ -60,7 +60,7 @@ function createOptions(selectElement, dataSet, label){
 }
 
 // fetch data + create cards
-fetch('https://pokeapi.co/api/v2/pokemon?limit=15')  // gets list of pokemons first (name and url only)
+fetch('https://pokeapi.co/api/v2/pokemon?limit=1500')  // gets list of pokemons first (name and url only)
     .then(res => res.json())
     .then(data => {
 
