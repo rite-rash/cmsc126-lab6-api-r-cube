@@ -189,7 +189,7 @@ header h2 {
 
 
 .filterDiv {
-  display: none; /*default: hidden, make .showCards func in js for on*/
+  display: none;
   position: relative;
   flex-direction: column;
   align-items: center;
