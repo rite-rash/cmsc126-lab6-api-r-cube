@@ -29,6 +29,13 @@ const typesList = new Set();
 const genList = new Set();
 const abiList = new Set();
 
+// function to capitalize
+function capitalize(word) {
+    return word.split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join('-');
+}
+
 // function to add options for filter
 function createOptions(selectElement, dataSet, label){
     const defaultOption = document.createElement('option');
@@ -42,9 +49,11 @@ function createOptions(selectElement, dataSet, label){
 
         // cleaner label for generation
         if (label === "Generations") {
-            option.textContent = item.replace("generation-", "Gen ");
+            // generation-i → Gen I
+            const gen = item.replace("generation-", "").toUpperCase();
+            option.textContent = `Gen ${gen}`;
         } else {
-            option.textContent = item;
+            option.textContent = capitalize(item);
         }
         selectElement.append(option);
     });
@@ -126,6 +135,7 @@ gallery.addEventListener('click', (e) => {
     const data = JSON.parse(card.dataset.pokemon);
 
     document.getElementById('side-id').textContent = `#${String(data.id).padStart(3, '0')}`;
+    document.getElementById('side-gen').textContent = data.gen.replace('generation-', 'Gen ');
     document.getElementById('side-name').textContent = data.name;
     document.getElementById('side-sprite').src = data.sprite;
     
