@@ -201,11 +201,11 @@ select {
 
 .filterDiv h3 {
   margin: 0;
-  padding-top: 80px;
   display: block;
   text-align: center;
   width: 100%;
   text-transform: capitalize;
+  margin-bottom: 15px;
   
 
   /* font-family: "Fira Sans","Trebuchet MS",Ubuntu,Helvetica,Arial,sans-serif; */
@@ -304,13 +304,14 @@ select {
   /* background: white; */
   
   z-index: 67;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 #side-panel.active {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;  /*for vertical viewport sticky type shit*/
   /* padding: 40px 20px; padding comes back when open */
 }
 
