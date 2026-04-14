@@ -69,8 +69,17 @@ header h2 {
 
 .filter-controller {
   text-align: center;
-  padding: 30px 0;
+  padding: 10px 5px;
+  gap: 20px;
 }
+
+form.filter-controller {
+  display: flex;
+  justify-content: center; 
+  gap: 20px;              
+  padding: 10px;
+}
+
 
 .filter-option-btn {
   background-color: #eee;
@@ -92,15 +101,26 @@ header h2 {
   box-shadow: 0 4px 10px rgba(61, 125, 202, 0.3);
 }
 
+select {
+  background-color: #F6F8FC;
+  border: 2px solid #a9a7a7;
+  color: #696868;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 10px;
+}
+
 /*------- GALLERY -------*/
 .main-display {
   display: flex;
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
+  flex: 1;
+  gap: 30px;
 
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 
 
@@ -126,7 +146,7 @@ header h2 {
 }
 
 .filterDiv {
-  display: flex;
+  display: none;
   position: relative;
   flex-direction: column;
   align-items: center;
@@ -135,14 +155,14 @@ header h2 {
   overflow: visible;
   /* min-height: 170px;     automatic na to magadjust sa obj */
 
-  /*test only for style and sht since obj will automatically adjust given use of grid remove lng later sei ah*/
   height: 170px;   
   width: 300px;
+  min-width: 300px;
   padding-bottom: 15px;   
   padding-top: 1px;
   box-sizing: border-box; /* so padding doesn't grow the card */
   border-radius: 30px;    
-  /*delete till here once js is done*/
+
 
   background-color: white;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 35px;
@@ -150,6 +170,7 @@ header h2 {
 
 .filterDiv h3 {
   margin: 0;
+  padding-top: 80px;
   display: block;
   text-align: center;
   width: 100%;
@@ -234,82 +255,112 @@ header h2 {
 
 /*------- SIDE PANEL-------*/
 /* bali invisible sidepanel until it's active or clicked*/
-/* note: abi ko magiging popup nlang to? or temporary muna kc wla pa js */
+
+.app-container {
+  display: flex;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+
 #side-panel {
   display: none;
-  width: 0; /*takes no space when closed */
-  min-width: 0;
-  flex-shrink: 0;
+  width: 400px;
+  min-width: 400px; 
   height: 100vh;
   position: sticky;
   top: 0;
-  background: #f9f9f9;
-  border-left: 2px solid #ddd;
-  padding: 0;
-  overflow-y: auto; /*hides content */
-  border-left: none;
+  /* background: white; */
+  
+  z-index: 67;
+  overflow-y: auto;
 }
 
 #side-panel.active {
-  display: block;
-  width: 300px;
-  min-width: 300px;
-  padding: 40px 20px; /* padding comes back when open */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 40px 20px; padding comes back when open */
 }
 
+
+.main-display {
+  flex: 1;
+  transition: margin-right 0.4s ease;
+  gap: 20px;
+}
 
 
 /*------- SIDE PANEL CARD -------*/
-
 .side-panel-card {
-  border: 1px solid gray;
-  position: relative;  /* reference point for side panel card contents*/
-  margin-top: 70px;      /*space for sprite */
-  padding: 20px;
   width: 100%;
-  overflow: visible; 
-  border-radius: 15px;
-  box-sizing: border-box;
-  text-align: center;    /*centers name, id, badges */
-}
-.side-panel-card.pokemon-id {
-  position: static;
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-  color: #d1d1d1;
-}
+  display: grid;
+  grid-template-areas:
+    "sprite"
+    "id"
+    "name"
+    "types"
+    "abilities";
+  gap: 15px;
+  padding: 20px;
+  position: relative;
+  text-transform: capitalize;
+  
+  height: 420px;
+  width: 300px;
+  place-items: center;
 
-.side-panel-sprites {
-  position: absolute;
-  top: -70px;      /*peek out above card */
-  /* left: 50%; */
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-}
-
-.side-panel-sprites img[alt="Front"]{
-  left: 50%;
-
-
+  background-color: white;
+  border-radius: 30px;
+  margin-left: 40px;
+  border: 5px solid #FF5350 ;
+  border-left: 10px solid #d74341;
+  border-bottom: 15px solid #d74341;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+  
 }
 
-.side-panel-img {
-  width: 120px;
-  height: auto;
-}
 
-/* for form and gender tags to be in top right of card */
 .side-panel-tags {
   position: absolute; 
-  top: 80px; /* below the sprite*/
+  top: 80px;
   right: 10px;
   display: flex;
   flex-direction: column;
   gap: 5px;
-  align-items: flex-end;
+  align-items: center;
+  place-items: center;
+  gap: 20px;
+  justify-content: center;
 }
+
+
+#side-sprite {
+  grid-area: sprite;
+  justify-self: center;
+  width: 180px;
+  height: auto;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  left: 50%;
+  z-index: 1;
+  align-items: center;
+}
+
+#side-id {
+  grid-area: id;
+  justify-self: center; /* Centers the ID under the image */
+  color: #a9a7a7;
+  font-weight: bold;
+}
+
+.side-panel--name {
+  grid-area: name;
+  text-transform: capitalize;
+  font-size: 30px;
+  justify-self:center;
+}
+
 
 .abilities-section {
     text-align: left;     
@@ -317,6 +368,7 @@ header h2 {
 }
 
 .abilities-section h4 {
+    justify-self:center;
     margin-bottom: 0;  /*removed gap between "Abilities" and the list*/
 }
 
@@ -326,106 +378,7 @@ header h2 {
     padding-left: 20px;
 }
 
-.filterDiv {
-  display: none;
-  position: relative;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  justify-content: flex-end;
-  overflow: visible;
-  min-height: 170px;     /*automatic na to magadjust sa obj */
 
-  /*test only for style and sht since obj will automatically adjust given use of grid remove lng later sei ah*/
-  height: 170px;   
-  padding-bottom: 15px;   
-  box-sizing: border-box; /* so padding doesn't grow the card */
-  border-radius: 30px;    
-  /*delete till here once js is done*/
-
-  background-color: white;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 35px;
-}
-
-.filterDiv h3 {
-  display: block;
-  text-align: center;
-  margin-top: 60px;
-  /* margin-left: 40px; */
-  width: 100%;
-  text-transform: capitalize;
-  
-
-  /* font-family: "Fira Sans","Trebuchet MS",Ubuntu,Helvetica,Arial,sans-serif; */
-  font-family:  "Outfit", Franklin Gothic Medium;;
-  font-weight: bold;
-  font-size: 20px;
-
-  color: #0c1d38
-}
-
-
-.filterDiv .pokemon-id {
-  position: absolute;
-  top: 20px;
-  right: 21px;
-  font-weight: bold;
-  color: #a9a7a7;
-}
-
-.filterDiv img {
-  position: absolute;
-  top: -60px; /* so it looks like the pokemon is mej nasa labas wahaha */
-  left: 50%;
-  transform: translateX(-50%); /*center sprite*/
-  /* width: 100px; */
-  z-index: 10; /* psrite on top of the border effect */
-
-  height: 80%;
-  max-height: 150px;
-  width: auto;
-}
-
-/* ref point ffor types */
-.type-container {
-  display: flex;
-  justify-content: center;
-  gap: 7px;
-  margin-top: 5px;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-/* indiv type */
-.type-badge {
-  /* border: 1px solid #333; */
-  padding: 4px 12px;
-  border-radius: 5px;
-  text-transform: uppercase;
-  /* font-family: Exo\ 2,sans-serif; */
-  font-weight: bold;
-  color: white;
-  /* color: #333; */
-}
-
-.normal   { background-color: #9e9ea1; }
-.fire     { background-color: #E62829; }
-.water    { background-color: #2981EF; }
-.electric { background-color: #FBC000; }
-.grass    { background-color: #3FA129; }
-.ice      { background-color: #42D7FF; }
-.fighting { background-color: #FF8000; }
-.poison   { background-color: #9141CB; }
-.ground   { background-color: #935421; }
-.flying   { background-color: #81B9EF; }
-.psychic  { background-color: #FFFFFF; }
-.bug      { background-color: #90A019; }
-.rock     { background-color: #AFA981; }
-.ghost    { background-color: #704170; }
-.dragon   { background-color: #5061E1; }
-.dark     { background-color: #50413F; }
-.steel    { background-color: #60A1B8; }
-.fairy    { background-color: #DE83D6; }
 
 
 
