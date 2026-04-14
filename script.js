@@ -164,12 +164,6 @@ gallery.addEventListener('click', (e) => {
         });
     });
 
-    // // search on submit
-    // document.getElementById('filterForm').addEventListener('submit', (e) => {
-    //     e.preventDefault();
-    //     searchCards();
-    // });
-
     // search live 
     document.getElementById('searchInput').addEventListener('input', () => {
         searchCards();
@@ -203,5 +197,16 @@ function filterCards(){
         } 
         console.log(card.classList);
     });
-
 }
+
+// close side panel when clicking outside card and panel
+document.addEventListener('click', (e) => {
+    const clickedCard = e.target.closest('.filterDiv');
+    const clickedPanel = e.target.closest('#side-panel');
+
+    if (!clickedCard && !clickedPanel) {
+        sidePanel.classList.remove('active');
+        document.querySelectorAll('.filterDiv').forEach(c => c.classList.remove('selected'));
+        gallery.style.gridTemplateColumns = "repeat(4, 1fr)";
+    }
+});
