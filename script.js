@@ -123,6 +123,9 @@ gallery.addEventListener('click', (e) => {
     const card = e.target.closest('.filterDiv');
     if (!card) return;
 
+    document.querySelectorAll('.filterDiv').forEach(c => c.classList.remove('selected')); //remove selected from all cards
+    card.classList.add('selected') //make selected to card just clicked
+
     const data = JSON.parse(card.dataset.pokemon);
 
     document.getElementById('side-id').textContent = `#${String(data.id).padStart(3, '0')}`;
@@ -151,11 +154,11 @@ gallery.addEventListener('click', (e) => {
         });
     });
 
-    // search on submit
-    document.getElementById('filterForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        searchCards();
-    });
+    // // search on submit
+    // document.getElementById('filterForm').addEventListener('submit', (e) => {
+    //     e.preventDefault();
+    //     searchCards();
+    // });
 
     // search live 
     document.getElementById('searchInput').addEventListener('input', () => {
