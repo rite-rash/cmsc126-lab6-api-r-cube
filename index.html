@@ -13,7 +13,7 @@
       <h2>website name: pokibeer eme idk</h2>
       <section class="search-bar">
         <form id="filterForm">
-          <input type="text" placeholder="Search pokemon..." />
+          <input type="text" id="searchInput" placeholder="Search pokemon..." />
           <button type="submit">Search</button>
         </form>
       </section>
@@ -27,43 +27,32 @@
         <button class="filter-option-btn" data-filter="fire">Fire</button>
         <button class="filter-option-btn" data-filter="water">Water</button>
         <button class="filter-option-btn" data-filter="grass">Grass</button>
-        <button class="filter-option-btn" data-filter="electric">
-          Electric
-        </button>
+        <button class="filter-option-btn" data-filter="electric">Electric</button>
       </nav>
 
 
     <main class="main-display">
       <section class="filter-results" id="pokemonGallery"></section>
-
       <aside id="side-panel">
         <div class="side-panel-card">
-          <!--for test lang
+
           <div class="side-panel-sprites">
-            <img id="side-sprite-front" src="images/pikachu.png" alt="Front" class="side-panel-img">
-            <img id="side-sprite-back" src="images/pikachu.png" alt="Back" class="side-panel-img">
+            <img id="side-sprite-front" alt="Front" class="side-panel-img">
+            <!-- <img id="side-sprite-back" alt="Back" class="side-panel-img"> -->
           </div>
         
-          <div class="side-panel-tags">
-            <span class="type-badge">Form</span>
-            <span class="type-badge">male</span>
-          </div>
+          <div class="side-panel-tags"> </div>
 
-          <span class="pokemon-id" id="side-id">S</span>
-          <h2 class="side-panel--name" id="side-name">Pikachu</h2>
+          <span class="pokemon-id" id="side-id"></span>
+          <h2 class="side-panel--name" id="side-name"></h2>
 
-          <div class="type-container" id="side-types">
-            <span class="type-badge">Electric</span>
-          </div>
+          <div class="type-container" id="side-types"></div>
 
           <div class="abilities-section">
             <h4>Abilities:</h4>
-            <ul id="side-abilities">
-              <li>Static</li>
-              <li>Lightning Rod</li>
-            </ul>
+            <ul id="side-abilities"></ul>
           </div>
-        -->
+
         </div>
       </aside>
     </main>

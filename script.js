@@ -1,8 +1,28 @@
 const gallery = document.getElementById('pokemonGallery');
 const sidePanel = document.getElementById('side-panel');
+let activeFilter = 'all'; 
+
+//
+function filterCards() {
+const query = document.getElementById('searchInput').value.trim().toLowerCase();
+const cards = document.querySelectorAll('.filterDiv');
+
+cards.forEach(card => {
+    const data = JSON.parse(card.dataset.pokemon);
+    const matchesSearch = data.name.toLowerCase().includes(query) || String(data.id).includes(query);
+    const matchesType = activeFilter === 'all' || data.types.includes(activeFilter);
+
+    //show cards only if it matches search keywrod and type of card
+    if (matchesSearch && matchesType) { 
+        card.classList.add('showCards');
+    } else {
+        card.classList.remove('showCards');
+    }
+});
+}
 
 // fetch data + create cards
-fetch('https://pokeapi.co/api/v2/pokemon?limit=15')  // gets list of pokemons first (name and url only)
+fetch('https://pokeapi.co/api/v2/pokemon?limit=50')  // gets list of pokemons first (name and url only)
     .then(res => res.json())
     .then(data => {
         data.results.forEach(pokemon => {
@@ -61,5 +81,26 @@ gallery.addEventListener('click', (e) => {
         data.abilities.map(a => `<li>${a}</li>`).join('');
     
     sidePanel.classList.add('active');
+
 });
 
+    // category filter buttons
+    document.querySelectorAll('.filter-option-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelector('.filter-option-btn.active').classList.remove('active');
+            btn.classList.add('active');
+            activeFilter = btn.dataset.filter;
+            filterCards();
+        });
+    });
+
+    // search on submit
+    document.getElementById('filterForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        filterCards();
+    });
+
+    // search live 
+    document.getElementById('searchInput').addEventListener('input', () => {
+        filterCards();
+    });
