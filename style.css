@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -13,9 +13,6 @@ html {
   overflow-x: hidden;
 }
 
-/* ------- NAVIGATION ------- */
-
-/* ------- search bar ------- */
 body{
   background-color: #f6f8fc;
   font-family: "Outfit", sans-serif;
@@ -25,7 +22,9 @@ body{
   background-position-y: -80px;
   width: 100%;
 }
+/* ------- NAVIGATION ------- */
 
+/* ------- search bar ------- */
 
 header {
   width: 100%;
@@ -35,13 +34,18 @@ header {
   top: 0;
   z-index: 100;
   background-color: #e6473e;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
+
 }
 
-header h2 {
+header h1 {
   text-align: center;
+  text-transform: uppercase;
   margin: 0 auto;
   width: 100%;
+  color: white;
+  font-size: 50px;
+  font-family: "Montserrat";
 }
 
 .search-bar {
@@ -49,6 +53,7 @@ header h2 {
   display: flex;
   justify-content: center;
   padding: 20px 0;
+  bottom: 10px;
 }
 
 /* ref point for the input and button */
@@ -128,6 +133,7 @@ select {
   font-weight: bold;
   padding: 10px;
   border-radius: 10px;
+  margin-top: 20px;
 }
 
 /*------- GALLERY -------*/
@@ -152,7 +158,7 @@ select {
   grid-auto-rows: max-content; /*so row does not get too big*/
   width: 100%;
   max-width: 1200px;
-  margin-top: 50px; /* space for the very row's sprites */
+  margin-top: 30px; /* space for the very row's sprites */
   padding: 20px;
   min-width: 0;
   overflow: visible;
@@ -233,14 +239,14 @@ select {
   left: 50%;
   transform: translateX(-50%); /*center sprite*/
   /* width: 100px; */
-  z-index: 10; /* psrite on top of the border effect */
+  z-index: 10; /* sprite  on top of the border effect */
 
   height: 80%;
   max-height: 150px;
   width: auto;
 }
 
-/* ref point ffor types */
+/* ref point for types */
 .type-container {
   display: flex;
   justify-content: center;
@@ -261,6 +267,8 @@ select {
   color: white;
   /* color: #333; */
 }
+
+/* different colors for different types depending on the class */
 
 .normal   { background-color: #9e9ea1; }
 .fire     { background-color: #E62829; }
@@ -315,12 +323,6 @@ select {
 }
 
 
-.main-display {
-  flex: 1;
-  transition: margin-right 0.4s ease;
-  gap: 20px;
-}
-
 
 /*------- SIDE PANEL CARD -------*/
 .side-panel-card {
@@ -337,17 +339,18 @@ select {
   position: relative;
   text-transform: capitalize;
   
-  height: 420px;
+  height: 430px;
   width: 300px;
   place-items: center;
 
   background-color: white;
   border-radius: 30px;
   margin-left: 40px;
+  /* so it looks like a card with shade */
   border: 5px solid #FF5350 ;
   border-left: 10px solid #d74341;
   border-bottom: 15px solid #d74341;
-  box-shadow: -5px 0 15px rgba(0,0,0,0.05);
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
   
 }
 
@@ -372,15 +375,17 @@ select {
   width: 180px;
   height: auto;
   margin-top: -20px;
-  margin-bottom: 10px;
+  margin-bottom: -15px;
   left: 50%;
   z-index: 1;
   align-items: center;
+
+  min-width: 200px;
 }
 
 #side-id {
   grid-area: id;
-  justify-self: center; /* Centers the ID under the image */
+  justify-self: center;
   color: #a9a7a7;
   font-weight: bold;
 }
@@ -414,5 +419,25 @@ select {
   display: flex !important;
 }
 
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 167;
 
+  background-color: #E6473E;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+
+  border: none;
+  outline: none;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
 
