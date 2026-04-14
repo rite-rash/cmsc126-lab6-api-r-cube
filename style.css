@@ -168,13 +168,13 @@ header h2 {
 .side-panel-card.pokemon-id {
   position: static;
   display: block;
-  text-align: right;
+  text-align: center;
   margin-top: 10px;
   color: #d1d1d1;
 }
 
 .side-panel-sprites {
-  position: relative;
+  position: absolute;
   top: -70px;      /*peek out above card */
   /* left: 50%; */
   transform: translateX(-50%);
