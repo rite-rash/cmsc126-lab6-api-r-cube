@@ -148,7 +148,7 @@ gallery.addEventListener('click', (e) => {
     document.getElementById('side-abilities').innerHTML = 
         data.abilities.map(a => `<li>${a}</li>`).join('');
     
-    gallery.style.gridTemplateColumns = "repeat(3, 1fr)"; //to
+    gallery.style.gridTemplateColumns = "repeat(3, 1fr)"; // so it has 3 cards in a row once the side panel shows up
     
     sidePanel.classList.add('active');
 
@@ -169,6 +169,7 @@ gallery.addEventListener('click', (e) => {
         searchCards();
     });
 
+// for filters to automatically filter once an option is selected
 typeSelect.addEventListener('change', filterCards);
 abiSelect.addEventListener('change', filterCards);
 genSelect.addEventListener('change', filterCards);
@@ -210,3 +211,19 @@ document.addEventListener('click', (e) => {
         gallery.style.gridTemplateColumns = "repeat(4, 1fr)";
     }
 });
+
+let mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+    } else {
+    mybutton.style.display = "none";
+    }
+}
+
+function topFunction() {
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+} 
